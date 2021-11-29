@@ -1,26 +1,17 @@
 package ru.nsu.nikolotov.geofinder.api;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import javax.swing.*;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+@Data
 public class APIKeys {
-    @Setter
-    @Getter
-    String geoCodingAPIKey;
-
-    @Setter
-    @Getter
-    String openWeatherAPIKey;
-
-    @Getter
-    @Setter
-    String openTripMapAPIKey;
+    private String geoCodingAPIKey;
+    private String openWeatherAPIKey;
+    private String openTripMapAPIKey;
 
     public APIKeys(String propPath) {
         Properties properties = new Properties();

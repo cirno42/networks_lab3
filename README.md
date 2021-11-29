@@ -4,6 +4,6 @@ To run application use:
 
 >gradle runApp
 
-## Warning!
+#Warning!
 
 Before starting application you should insert your API keys to api_keys.prop

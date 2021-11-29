@@ -1,3 +1,3 @@
-GraphHopper = INSERT_KEY_HERE
-OpenWeatherMap = INSERT_KEY_HERE
-OpenTripMap = INSERT_KEY_HERE
+GraphHopper = 5e745f8d-f13e-4667-9d1d-da14dd083fb1
+OpenWeatherMap = 0f698346791f980abdd3b6d3609517cf
+OpenTripMap = 5ae2e3f221c38a28845f05b6e5df804b3e3ff74134a880b27bbbe489

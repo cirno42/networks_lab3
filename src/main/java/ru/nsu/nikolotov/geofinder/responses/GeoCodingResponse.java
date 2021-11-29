@@ -4,7 +4,7 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 
+@Getter
 public class GeoCodingResponse {
-    @Getter
     private ArrayList<Address> hits;
 }

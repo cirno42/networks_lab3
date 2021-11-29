@@ -3,52 +3,22 @@ package ru.nsu.nikolotov.geofinder.responses;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
 public class Address {
-    //@JsonProperty("point")
-
-    @Getter
     private Point point;
-    @Getter
-    @Setter
     private String osm_id;
-
-    @Getter
-    @Setter
     private String osm_type;
-
-    @Getter
-    @Setter
     private String osm_key;
-
-    @Getter
-    @Setter
     private String osm_value;
-
-    @Getter
-    @Setter
     private String name;
-
-    @Getter
-    @Setter
     private String country;
-
-    @Getter
-    @Setter
     private String city;
-
-    @Getter @Setter
     private String state;
-
-    @Getter
-    @Setter
     private String street;
-
-
-    @Getter
-    @Setter
     private String postcode;
 
-    public String getAddressString() {
+    @Override
+    public String toString() {
         StringBuilder stringBuilder = new StringBuilder("");
         if (country != null) {
             stringBuilder.append(country).append(",");

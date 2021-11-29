@@ -3,29 +3,22 @@ package ru.nsu.nikolotov.geofinder.responses;
 import lombok.Getter;
 
 import java.util.ArrayList;
-
+@Getter
 public class OtmPlacesResponse {
-    @Getter
-    ArrayList<OtmFeature> features;
+    private ArrayList<OtmFeature> features;
 
+    @Getter
     public static class OtmFeature {
-        @Getter
-        String type;
-        @Getter
-        String id;
-        @Getter
-        OtmProperties properties;
+        private String type;
+        private String id;
+        private OtmProperties properties;
     }
+    @Getter
     public static class OtmProperties {
-        @Getter
-        String xid;
-        @Getter
-        String name;
-        @Getter
-        double dist;
-        @Getter
-        int rate;
-        @Getter
-        String kinds;
+        private String xid;
+        private String name;
+        private double dist;
+        private int rate;
+        private String kinds;
     }
 }

@@ -3,11 +3,10 @@ package ru.nsu.nikolotov.geofinder.responses;
 import lombok.Getter;
 import lombok.Setter;
 
+@Getter
+@Setter
 public class Point {
-    @Setter
-    @Getter
-    double lat;
-    @Setter
-    @Getter
-    double lng;
+    private double lat;
+
+    private double lng;
 }

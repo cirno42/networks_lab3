@@ -69,7 +69,7 @@ public class App {
         geoPoints.clear();
         var addresses = resp.getHits();
         for(int i = 0; i < addresses.size(); i++) {
-            addressesListModel.add(i, addresses.get(i).getAddressString());
+            addressesListModel.add(i, addresses.get(i).toString());
             geoPoints.add(i, addresses.get(i).getPoint());
         }
 
@@ -116,7 +116,7 @@ public class App {
 
     private void showInfoAboutInterestingPlace(OtmPlaceInfo info) {
         JTextArea textArea = new JTextArea(6, 25);
-        textArea.setText(info.getDescription());
+        textArea.setText(info.toString());
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         JOptionPane.showMessageDialog(frame, scrollPane);
@@ -146,7 +146,7 @@ public class App {
         findButton.addActionListener((l) -> {
             String placeName = placeTextField.getText();
             if (placeName != null) {
-                GraphHopperAPI.getAddressesByName(placeName, keys.getGeoCodingAPIKey()).
+                GraphHopperAPI.getAddressesByNameOrNull(placeName, keys.getGeoCodingAPIKey()).
                         thenAccept(this::updateGeoCoding);
             }
         });
@@ -155,9 +155,9 @@ public class App {
         getInfoAboutPlaceButton.addActionListener(l -> {
             double lat = geoPoints.get(addressesList.getSelectedIndex()).getLat();
             double lng = geoPoints.get(addressesList.getSelectedIndex()).getLng();
-            OpenWeatherMapAPI.getWeatherByCords(lat, lng, keys.getOpenWeatherAPIKey())
+            OpenWeatherMapAPI.getWeatherByCordsOrNull(lat, lng, keys.getOpenWeatherAPIKey())
                     .thenAccept(this::updateWeatherInfo);
-            OpenTripMapAPI.getInterestingPlaces(lat, lng, DEFAULT_RADIUS_IN_METERS, keys.getOpenTripMapAPIKey())
+            OpenTripMapAPI.getInterestingPlacesOrNull(lat, lng, DEFAULT_RADIUS_IN_METERS, keys.getOpenTripMapAPIKey())
                     .thenApply(this::updateListOfInterestingPlaces)
                     .thenAccept(this::getXidsOfPlaces);
 
@@ -168,7 +168,7 @@ public class App {
             int index = interestingPlacesList.getSelectedIndex();
             if (xids.size() > index) {
                 String xid = xids.get(index);
-                OpenTripMapAPI.getInfoAboutPlace(xid, keys.getOpenTripMapAPIKey())
+                OpenTripMapAPI.getInfoAboutPlaceOrNull(xid, keys.getOpenTripMapAPIKey())
                         .thenAccept(this::showInfoAboutInterestingPlace);
             }
         });

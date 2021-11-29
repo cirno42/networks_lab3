@@ -6,36 +6,29 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 
+@Getter
 public class OpenWeatherMapResponse {
-    @Getter
     ArrayList<Weather> weather;
 
-    @Getter
     @JsonAlias("main")
     private MainInfo mainInfo;
 
-    @Getter
     Wind wind;
 
-
+    @Getter
     public static class Weather {
-        @Getter
-        int id;
-        @Getter
-        String description;
+        private int id;
+        private String description;
     }
+    @Getter
     public static class MainInfo {
-        @Getter
         private double temp;
-        @Getter
         private double feels_like;
-        @Getter
         private double humidity;
     }
+    @Getter
     public static class Wind {
-        @Getter
         private double speed;
-        @Getter
         private double deg;
     }
 

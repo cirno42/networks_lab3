@@ -3,24 +3,22 @@ package ru.nsu.nikolotov.geofinder.responses;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 
+@Getter
 @JsonIgnoreProperties(ignoreUnknown = false)
 public class OtmPlaceInfo {
-    @Getter
-    String xid;
-    @Getter
-    String name;
-    @Getter
-    Address address;
-    @Getter
-    OtmInfo info;
+    private String xid;
+    private String name;
+    private Address address;
+    private OtmInfo info;
 
     public static class OtmInfo {
         @Getter
         String descr;
     }
 
-    public String getDescription() {
-        String desc = name + "\n" + address.getAddressString() + "\n";
+    @Override
+    public String toString() {
+        String desc = name + "\n" + address.toString() + "\n";
         if (info != null) {
             desc += formattedDescr(info.getDescr());
         } else {
